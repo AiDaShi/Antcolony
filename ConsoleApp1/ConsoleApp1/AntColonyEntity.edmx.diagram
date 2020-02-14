@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21fd8d2d0221454e9b7fa7d33823e1a3" Name="Diagram1" ZoomLevel="63" >
+        <EntityTypeShape EntityType="AntColonyEntity.User" Width="1.5" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="AntColonyEntity.RootAdmin" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AntColonyEntity.Company" Width="2.5" PointX="0.5" PointY="4.5" />
+        <EntityTypeShape EntityType="AntColonyEntity.Team" Width="1.5" PointX="6.125" PointY="5.125" />
+        <AssociationConnector Association="AntColonyEntity.CompanyTeam" />
+        <EntityTypeShape EntityType="AntColonyEntity.Team_Relation_User" Width="2.625" PointX="11.75" PointY="3.375" />
+        <AssociationConnector Association="AntColonyEntity.TeamTeam_Relation_User" />
+        <EntityTypeShape EntityType="AntColonyEntity.TeamTypeTable" Width="1.5" PointX="13.875" PointY="6.25" />
+        <AssociationConnector Association="AntColonyEntity.TeamTeamTypeTable" />
+        <EntityTypeShape EntityType="AntColonyEntity.Power" Width="1.5" PointX="19.875" PointY="10" />
+        <EntityTypeShape EntityType="AntColonyEntity.RoleTable" Width="1.5" PointX="2.125" PointY="10.125" />
+        <EntityTypeShape EntityType="AntColonyEntity.Role_Post_Power" Width="1.875" PointX="5.5" PointY="10.25" />
+        <AssociationConnector Association="AntColonyEntity.RoleTableRole_Post_Power" />
+        <AssociationConnector Association="AntColonyEntity.Role_Post_PowerPower" />
+        <EntityTypeShape EntityType="AntColonyEntity.Role_Post_User" Width="1.5" PointX="0.5" PointY="10.25" />
+        <EntityTypeShape EntityType="AntColonyEntity.SpecialPermissionTable" Width="2.5" PointX="5.5" PointY="13.25" />
+        <EntityTypeShape EntityType="AntColonyEntity.TeamRoleTable" Width="2" PointX="10.25" PointY="7.375" />
+        <AssociationConnector Association="AntColonyEntity.TeamTeamRoleTable" />
+        <EntityTypeShape EntityType="AntColonyEntity.TeamRole_Post_Power" Width="2.25" PointX="13.875" PointY="8.625" />
+        <AssociationConnector Association="AntColonyEntity.TeamRoleTableTeamRole_Post_Power" />
+        <AssociationConnector Association="AntColonyEntity.TeamRole_Post_PowerPower" />
+        <EntityTypeShape EntityType="AntColonyEntity.TeamSpecialPermissionTable" Width="1.5" PointX="8" PointY="9.125" />
+        <EntityTypeShape EntityType="AntColonyEntity.Project" Width="3.875" PointX="6.25" PointY="15.875" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectMessage" Width="1.5" PointX="11.5" PointY="15.625" />
+        <AssociationConnector Association="AntColonyEntity.ProjectProjectMessage" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectType" Width="1.5" PointX="3.375" PointY="15.875" />
+        <AssociationConnector Association="AntColonyEntity.ProjectTypeProject" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectFile" Width="1.5" PointX="13.75" PointY="18.5" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectFileTag" Width="1.5" PointX="11.25" PointY="20.25" />
+        <AssociationConnector Association="AntColonyEntity.ProjectProjectFile" />
+        <AssociationConnector Association="AntColonyEntity.ProjectProjectFileTag" />
+        <AssociationConnector Association="AntColonyEntity.ProjectFileProjectFileTag" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectTaskList" Width="1.5" PointX="5.375" PointY="21.25" />
+        <AssociationConnector Association="AntColonyEntity.ProjectUser" />
+        <AssociationConnector Association="AntColonyEntity.ProjectProjectTaskList" />
+        <AssociationConnector Association="AntColonyEntity.ProjectTaskListUser" />
+        <EntityTypeShape EntityType="AntColonyEntity.ProjectStateTable" Width="1.5" PointX="1.5" PointY="18.75" />
+        <AssociationConnector Association="AntColonyEntity.ProjectStateTableProject" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

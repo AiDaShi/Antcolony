@@ -1,0 +1,1593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AntColonyEntity.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AntColonyEntityStoreContainer">
+    <EntitySet Name="User" EntityType="AntColonyEntity.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RootAdmin" EntityType="AntColonyEntity.Store.RootAdmin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="AntColonyEntity.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Team" EntityType="AntColonyEntity.Store.Team" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Team_Relation_User" EntityType="AntColonyEntity.Store.Team_Relation_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamTypeTable" EntityType="AntColonyEntity.Store.TeamTypeTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Power" EntityType="AntColonyEntity.Store.Power" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleTable" EntityType="AntColonyEntity.Store.RoleTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role_Post_Power" EntityType="AntColonyEntity.Store.Role_Post_Power" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role_Post_User" EntityType="AntColonyEntity.Store.Role_Post_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialPermissionTable" EntityType="AntColonyEntity.Store.SpecialPermissionTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamRoleTable" EntityType="AntColonyEntity.Store.TeamRoleTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamRole_Post_Power" EntityType="AntColonyEntity.Store.TeamRole_Post_Power" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeamSpecialPermissionTableSet" EntityType="AntColonyEntity.Store.TeamSpecialPermissionTableSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Project" EntityType="AntColonyEntity.Store.Project" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectMessage" EntityType="AntColonyEntity.Store.ProjectMessage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectType" EntityType="AntColonyEntity.Store.ProjectType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectFile" EntityType="AntColonyEntity.Store.ProjectFile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectFileTag" EntityType="AntColonyEntity.Store.ProjectFileTag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectTaskList" EntityType="AntColonyEntity.Store.ProjectTaskList" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectStateTable" EntityType="AntColonyEntity.Store.ProjectStateTable" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CompanyTeam" Association="AntColonyEntity.Store.CompanyTeam">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="TeamTeam_Relation_User" Association="AntColonyEntity.Store.TeamTeam_Relation_User">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Team_Relation_User" EntitySet="Team_Relation_User" />
+    </AssociationSet>
+    <AssociationSet Name="TeamTeamTypeTable" Association="AntColonyEntity.Store.TeamTeamTypeTable">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="TeamTypeTable" EntitySet="TeamTypeTable" />
+    </AssociationSet>
+    <AssociationSet Name="RoleTableRole_Post_Power" Association="AntColonyEntity.Store.RoleTableRole_Post_Power">
+      <End Role="RoleTable" EntitySet="RoleTable" />
+      <End Role="Role_Post_Power" EntitySet="Role_Post_Power" />
+    </AssociationSet>
+    <AssociationSet Name="Role_Post_PowerPower" Association="AntColonyEntity.Store.Role_Post_PowerPower">
+      <End Role="Role_Post_Power" EntitySet="Role_Post_Power" />
+      <End Role="Power" EntitySet="Power" />
+    </AssociationSet>
+    <AssociationSet Name="TeamTeamRoleTable" Association="AntColonyEntity.Store.TeamTeamRoleTable">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="TeamRoleTable" EntitySet="TeamRoleTable" />
+    </AssociationSet>
+    <AssociationSet Name="TeamRoleTableTeamRole_Post_Power" Association="AntColonyEntity.Store.TeamRoleTableTeamRole_Post_Power">
+      <End Role="TeamRoleTable" EntitySet="TeamRoleTable" />
+      <End Role="TeamRole_Post_Power" EntitySet="TeamRole_Post_Power" />
+    </AssociationSet>
+    <AssociationSet Name="TeamRole_Post_PowerPower" Association="AntColonyEntity.Store.TeamRole_Post_PowerPower">
+      <End Role="TeamRole_Post_Power" EntitySet="TeamRole_Post_Power" />
+      <End Role="Power" EntitySet="Power" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProjectMessage" Association="AntColonyEntity.Store.ProjectProjectMessage">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectMessage" EntitySet="ProjectMessage" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectTypeProject" Association="AntColonyEntity.Store.ProjectTypeProject">
+      <End Role="ProjectType" EntitySet="ProjectType" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProjectFile" Association="AntColonyEntity.Store.ProjectProjectFile">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectFile" EntitySet="ProjectFile" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProjectFileTag" Association="AntColonyEntity.Store.ProjectProjectFileTag">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectFileTag" EntitySet="ProjectFileTag" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectFileProjectFileTag" Association="AntColonyEntity.Store.ProjectFileProjectFileTag">
+      <End Role="ProjectFile" EntitySet="ProjectFile" />
+      <End Role="ProjectFileTag" EntitySet="ProjectFileTag" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectUser" Association="AntColonyEntity.Store.ProjectUser">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProjectTaskList" Association="AntColonyEntity.Store.ProjectProjectTaskList">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectTaskList" EntitySet="ProjectTaskList" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectTaskListUser" Association="AntColonyEntity.Store.ProjectTaskListUser">
+      <End Role="ProjectTaskList" EntitySet="ProjectTaskList" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectStateTableProject" Association="AntColonyEntity.Store.ProjectStateTableProject">
+      <End Role="ProjectStateTable" EntitySet="ProjectStateTable" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="RealyName" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Pwd" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Sex" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="124" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Project_Id" Type="int" Nullable="true" />
+    <Property Name="ProjectTaskList_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="RootAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="CompanyInfo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyIcon" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CompanyUrl" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CompanyAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CorporaterepResentative" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="CompanyMainUser" Type="int" Nullable="false" />
+    <Property Name="CompanyTerritory" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CompanyYearOfEstablishment" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamName" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="TeamInfo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TeamLogo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="TeamAdmin" Type="int" Nullable="false" />
+    <Property Name="Company_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Team_Relation_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TeamType" Type="int" Nullable="true" />
+    <Property Name="UserRemark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamTypeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="RemarkTag" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Power">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Route" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Method" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="bit" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="IsCompany" Type="bit" Nullable="false" />
+    <Property Name="TeamRole_Post_Power_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="RoleTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role_Post_Power">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="RoleTable_Id" Type="int" Nullable="true" />
+    <Property Name="Power_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Role_Post_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialPermissionTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SpecialId" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamRoleTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="Team_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamRole_Post_Power">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="TeamRoleTable_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamSpecialPermissionTableSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SpecialId" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" Nullable="false" MaxLength="254" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="MainUserId" Type="int" Nullable="false" />
+    <Property Name="Teamid" Type="int" Nullable="false" />
+    <Property Name="ProjectInfo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectImg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SpeedOfProgress" Type="int" Nullable="false" />
+    <Property Name="Edition" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="GitHubUrl" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Priority" Type="smallint" Nullable="false" />
+    <Property Name="EstimatedTime" Type="datetime" Nullable="false" />
+    <Property Name="WareHourseUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Money" Type="float" Nullable="false" />
+    <Property Name="ProjectType_Id" Type="int" Nullable="false" />
+    <Property Name="ProjectStateTable_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Userid" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="Parentid" Type="int" Nullable="true" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="254" />
+    <Property Name="FileUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SuffixName" Type="nvarchar" Nullable="false" MaxLength="124" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+    <Property Name="ProjectFileTag_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectFileTag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectTaskList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="FromTime" Type="datetime" Nullable="false" />
+    <Property Name="ToTime" Type="datetime" Nullable="false" />
+    <Property Name="TaskMainUser" Type="int" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectStateTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="true" />
+    <Property Name="DeleteTime" Type="datetime" Nullable="true" />
+    <Property Name="State" Type="smallint" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="CompanyTeam">
+    <End Role="Company" Type="AntColonyEntity.Store.Company" Multiplicity="0..1" />
+    <End Role="Team" Type="AntColonyEntity.Store.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="Company_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamTeam_Relation_User">
+    <End Role="Team" Type="AntColonyEntity.Store.Team" Multiplicity="1" />
+    <End Role="Team_Relation_User" Type="AntColonyEntity.Store.Team_Relation_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Team_Relation_User">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamTeamTypeTable">
+    <End Role="Team" Type="AntColonyEntity.Store.Team" Multiplicity="1" />
+    <End Role="TeamTypeTable" Type="AntColonyEntity.Store.TeamTypeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamTypeTable">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleTableRole_Post_Power">
+    <End Role="RoleTable" Type="AntColonyEntity.Store.RoleTable" Multiplicity="0..1" />
+    <End Role="Role_Post_Power" Type="AntColonyEntity.Store.Role_Post_Power" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role_Post_Power">
+        <PropertyRef Name="RoleTable_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Role_Post_PowerPower">
+    <End Role="Role_Post_Power" Type="AntColonyEntity.Store.Role_Post_Power" Multiplicity="*" />
+    <End Role="Power" Type="AntColonyEntity.Store.Power" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Power">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role_Post_Power">
+        <PropertyRef Name="Power_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamTeamRoleTable">
+    <End Role="Team" Type="AntColonyEntity.Store.Team" Multiplicity="1" />
+    <End Role="TeamRoleTable" Type="AntColonyEntity.Store.TeamRoleTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamRoleTable">
+        <PropertyRef Name="Team_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamRoleTableTeamRole_Post_Power">
+    <End Role="TeamRoleTable" Type="AntColonyEntity.Store.TeamRoleTable" Multiplicity="1" />
+    <End Role="TeamRole_Post_Power" Type="AntColonyEntity.Store.TeamRole_Post_Power" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeamRoleTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamRole_Post_Power">
+        <PropertyRef Name="TeamRoleTable_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TeamRole_Post_PowerPower">
+    <End Role="TeamRole_Post_Power" Type="AntColonyEntity.Store.TeamRole_Post_Power" Multiplicity="0..1" />
+    <End Role="Power" Type="AntColonyEntity.Store.Power" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeamRole_Post_Power">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Power">
+        <PropertyRef Name="TeamRole_Post_Power_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectProjectMessage">
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="1" />
+    <End Role="ProjectMessage" Type="AntColonyEntity.Store.ProjectMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectMessage">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectTypeProject">
+    <End Role="ProjectType" Type="AntColonyEntity.Store.ProjectType" Multiplicity="1" />
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectProjectFile">
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="1" />
+    <End Role="ProjectFile" Type="AntColonyEntity.Store.ProjectFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectFile">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectProjectFileTag">
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="1" />
+    <End Role="ProjectFileTag" Type="AntColonyEntity.Store.ProjectFileTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectFileTag">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectFileProjectFileTag">
+    <End Role="ProjectFile" Type="AntColonyEntity.Store.ProjectFile" Multiplicity="*" />
+    <End Role="ProjectFileTag" Type="AntColonyEntity.Store.ProjectFileTag" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectFileTag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectFile">
+        <PropertyRef Name="ProjectFileTag_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectUser">
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="0..1" />
+    <End Role="User" Type="AntColonyEntity.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectProjectTaskList">
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="1" />
+    <End Role="ProjectTaskList" Type="AntColonyEntity.Store.ProjectTaskList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectTaskList">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectTaskListUser">
+    <End Role="ProjectTaskList" Type="AntColonyEntity.Store.ProjectTaskList" Multiplicity="0..1" />
+    <End Role="User" Type="AntColonyEntity.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTaskList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ProjectTaskList_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectStateTableProject">
+    <End Role="ProjectStateTable" Type="AntColonyEntity.Store.ProjectStateTable" Multiplicity="1" />
+    <End Role="Project" Type="AntColonyEntity.Store.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectStateTable">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectStateTable_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AntColonyEntity" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="AntColonyEntityContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User" EntityType="AntColonyEntity.User" />
+          <EntitySet Name="RootAdmin" EntityType="AntColonyEntity.RootAdmin" />
+          <EntitySet Name="Company" EntityType="AntColonyEntity.Company" />
+          <EntitySet Name="Team" EntityType="AntColonyEntity.Team" />
+          <AssociationSet Name="CompanyTeam" Association="AntColonyEntity.CompanyTeam">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <EntitySet Name="Team_Relation_User" EntityType="AntColonyEntity.Team_Relation_User" />
+          <AssociationSet Name="TeamTeam_Relation_User" Association="AntColonyEntity.TeamTeam_Relation_User">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Team_Relation_User" EntitySet="Team_Relation_User" />
+          </AssociationSet>
+          <EntitySet Name="TeamTypeTable" EntityType="AntColonyEntity.TeamTypeTable" />
+          <AssociationSet Name="TeamTeamTypeTable" Association="AntColonyEntity.TeamTeamTypeTable">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamTypeTable" EntitySet="TeamTypeTable" />
+          </AssociationSet>
+          <EntitySet Name="Power" EntityType="AntColonyEntity.Power" />
+          <EntitySet Name="RoleTable" EntityType="AntColonyEntity.RoleTable" />
+          <EntitySet Name="Role_Post_Power" EntityType="AntColonyEntity.Role_Post_Power" />
+          <AssociationSet Name="RoleTableRole_Post_Power" Association="AntColonyEntity.RoleTableRole_Post_Power">
+            <End Role="RoleTable" EntitySet="RoleTable" />
+            <End Role="Role_Post_Power" EntitySet="Role_Post_Power" />
+          </AssociationSet>
+          <AssociationSet Name="Role_Post_PowerPower" Association="AntColonyEntity.Role_Post_PowerPower">
+            <End Role="Role_Post_Power" EntitySet="Role_Post_Power" />
+            <End Role="Power" EntitySet="Power" />
+          </AssociationSet>
+          <EntitySet Name="Role_Post_User" EntityType="AntColonyEntity.Role_Post_User" />
+          <EntitySet Name="SpecialPermissionTable" EntityType="AntColonyEntity.SpecialPermissionTable" />
+          <EntitySet Name="TeamRoleTable" EntityType="AntColonyEntity.TeamRoleTable" />
+          <AssociationSet Name="TeamTeamRoleTable" Association="AntColonyEntity.TeamTeamRoleTable">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamRoleTable" EntitySet="TeamRoleTable" />
+          </AssociationSet>
+          <EntitySet Name="TeamRole_Post_Power" EntityType="AntColonyEntity.TeamRole_Post_Power" />
+          <AssociationSet Name="TeamRoleTableTeamRole_Post_Power" Association="AntColonyEntity.TeamRoleTableTeamRole_Post_Power">
+            <End Role="TeamRoleTable" EntitySet="TeamRoleTable" />
+            <End Role="TeamRole_Post_Power" EntitySet="TeamRole_Post_Power" />
+          </AssociationSet>
+          <AssociationSet Name="TeamRole_Post_PowerPower" Association="AntColonyEntity.TeamRole_Post_PowerPower">
+            <End Role="TeamRole_Post_Power" EntitySet="TeamRole_Post_Power" />
+            <End Role="Power" EntitySet="Power" />
+          </AssociationSet>
+          <EntitySet Name="TeamSpecialPermissionTableSet" EntityType="AntColonyEntity.TeamSpecialPermissionTable" />
+          <EntitySet Name="Project" EntityType="AntColonyEntity.Project" />
+          <EntitySet Name="ProjectMessage" EntityType="AntColonyEntity.ProjectMessage" />
+          <AssociationSet Name="ProjectProjectMessage" Association="AntColonyEntity.ProjectProjectMessage">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectMessage" EntitySet="ProjectMessage" />
+          </AssociationSet>
+          <EntitySet Name="ProjectType" EntityType="AntColonyEntity.ProjectType" />
+          <AssociationSet Name="ProjectTypeProject" Association="AntColonyEntity.ProjectTypeProject">
+            <End Role="ProjectType" EntitySet="ProjectType" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <EntitySet Name="ProjectFile" EntityType="AntColonyEntity.ProjectFile" />
+          <EntitySet Name="ProjectFileTag" EntityType="AntColonyEntity.ProjectFileTag" />
+          <AssociationSet Name="ProjectProjectFile" Association="AntColonyEntity.ProjectProjectFile">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectFile" EntitySet="ProjectFile" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectProjectFileTag" Association="AntColonyEntity.ProjectProjectFileTag">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectFileTag" EntitySet="ProjectFileTag" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectFileProjectFileTag" Association="AntColonyEntity.ProjectFileProjectFileTag">
+            <End Role="ProjectFile" EntitySet="ProjectFile" />
+            <End Role="ProjectFileTag" EntitySet="ProjectFileTag" />
+          </AssociationSet>
+          <EntitySet Name="ProjectTaskList" EntityType="AntColonyEntity.ProjectTaskList" />
+          <AssociationSet Name="ProjectUser" Association="AntColonyEntity.ProjectUser">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectProjectTaskList" Association="AntColonyEntity.ProjectProjectTaskList">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectTaskList" EntitySet="ProjectTaskList" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectTaskListUser" Association="AntColonyEntity.ProjectTaskListUser">
+            <End Role="ProjectTaskList" EntitySet="ProjectTaskList" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="ProjectStateTable" EntityType="AntColonyEntity.ProjectStateTable" />
+          <AssociationSet Name="ProjectStateTableProject" Association="AntColonyEntity.ProjectStateTableProject">
+            <End Role="ProjectStateTable" EntitySet="ProjectStateTable" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Documentation>
+            <LongDescription>用户表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>用户名</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="RealyName" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>用户真实姓名</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Pwd" Type="String" Nullable="false" Unicode="true" MaxLength="64" />
+          <Property Name="Sex" Type="Boolean" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="true" MaxLength="124" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="124" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectUser" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="ProjectTaskList" Relationship="AntColonyEntity.ProjectTaskListUser" FromRole="User" ToRole="ProjectTaskList" />
+        </EntityType>
+        <EntityType Name="RootAdmin">
+          <Documentation>
+            <LongDescription>管理员表</LongDescription>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="124" Unicode="true" />
+          <Property Name="CompanyInfo" Type="String" Nullable="false" Unicode="true" MaxLength="Max" >
+            <Documentation>
+              <LongDescription>公司介绍</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompanyIcon" Type="String" Nullable="true" MaxLength="Max" Unicode="true" >
+            <Documentation>
+              <LongDescription>公司图标
+</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompanyUrl" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="CorporaterepResentative" Type="String" Nullable="false" MaxLength="124" Unicode="true" >
+            <Documentation>
+              <LongDescription>公司法人代表</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompanyMainUser" Type="Int32" Nullable="false" />
+          <Property Name="CompanyTerritory" Type="String" Nullable="true" MaxLength="Max" Unicode="true" >
+            <Documentation>
+              <LongDescription>公司所属地</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CompanyYearOfEstablishment" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <LongDescription>公司成立年份</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" >
+            <Documentation>
+              <LongDescription>公司状态：0：审核中 ，1：成功，2：审核失败</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Team" Relationship="AntColonyEntity.CompanyTeam" FromRole="Company" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamName" Type="String" Nullable="false" Unicode="true" MaxLength="124" />
+          <Property Name="TeamInfo" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="TeamLogo" Type="String" Nullable="true" Unicode="true" MaxLength="Max" />
+          <NavigationProperty Name="Company" Relationship="AntColonyEntity.CompanyTeam" FromRole="Team" ToRole="Company" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" >
+            <Documentation>
+              <LongDescription>如果有公司就按照公司来审核</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="Team_Relation_User" Relationship="AntColonyEntity.TeamTeam_Relation_User" FromRole="Team" ToRole="Team_Relation_User" />
+          <NavigationProperty Name="TeamTypeTable" Relationship="AntColonyEntity.TeamTeamTypeTable" FromRole="Team" ToRole="TeamTypeTable" />
+          <Property Name="TeamAdmin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TeamRoleTable" Relationship="AntColonyEntity.TeamTeamRoleTable" FromRole="Team" ToRole="TeamRoleTable" />
+        </EntityType>
+        <Association Name="CompanyTeam">
+          <End Type="AntColonyEntity.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="AntColonyEntity.Team" Role="Team" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Team_Relation_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="TeamType" Type="Int32" Nullable="true" />
+          <Property Name="UserRemark" Type="String" Nullable="false" MaxLength="Max" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="AntColonyEntity.TeamTeam_Relation_User" FromRole="Team_Relation_User" ToRole="Team" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="TeamTeam_Relation_User">
+          <End Type="AntColonyEntity.Team" Role="Team" Multiplicity="1" />
+          <End Type="AntColonyEntity.Team_Relation_User" Role="Team_Relation_User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TeamTypeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="124" Unicode="true" />
+          <Property Name="RemarkTag" Type="String" Nullable="false" MaxLength="Max" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="AntColonyEntity.TeamTeamTypeTable" FromRole="TeamTypeTable" ToRole="Team" />
+        </EntityType>
+        <Association Name="TeamTeamTypeTable">
+          <End Type="AntColonyEntity.Team" Role="Team" Multiplicity="1" />
+          <End Type="AntColonyEntity.TeamTypeTable" Role="TeamTypeTable" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Power">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>权限名称</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Image" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <Property Name="Route" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>路由名称</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Action" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>方法名称</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Method" Type="String" Nullable="false" >
+            <Documentation>
+              <LongDescription>Post 与 Get</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="Boolean" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Role_Post_Power" Relationship="AntColonyEntity.Role_Post_PowerPower" FromRole="Power" ToRole="Role_Post_Power" />
+          <NavigationProperty Name="TeamRole_Post_Power" Relationship="AntColonyEntity.TeamRole_Post_PowerPower" FromRole="Power" ToRole="TeamRole_Post_Power" />
+          <Property Name="IsCompany" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="124" />
+          <Property Name="Image" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Role_Post_Power" Relationship="AntColonyEntity.RoleTableRole_Post_Power" FromRole="RoleTable" ToRole="Role_Post_Power" />
+        </EntityType>
+        <EntityType Name="Role_Post_Power">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="RoleTable" Relationship="AntColonyEntity.RoleTableRole_Post_Power" FromRole="Role_Post_Power" ToRole="RoleTable" />
+          <NavigationProperty Name="Power" Relationship="AntColonyEntity.Role_Post_PowerPower" FromRole="Role_Post_Power" ToRole="Power" />
+        </EntityType>
+        <Association Name="RoleTableRole_Post_Power">
+          <End Type="AntColonyEntity.RoleTable" Role="RoleTable" Multiplicity="0..1" />
+          <End Type="AntColonyEntity.Role_Post_Power" Role="Role_Post_Power" Multiplicity="*" />
+        </Association>
+        <Association Name="Role_Post_PowerPower">
+          <End Type="AntColonyEntity.Role_Post_Power" Role="Role_Post_Power" Multiplicity="*" />
+          <End Type="AntColonyEntity.Power" Role="Power" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Role_Post_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialPermissionTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="SpecialId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamRoleTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="124" Unicode="true" />
+          <Property Name="Image" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="AntColonyEntity.TeamTeamRoleTable" FromRole="TeamRoleTable" ToRole="Team" />
+          <NavigationProperty Name="TeamRole_Post_Power" Relationship="AntColonyEntity.TeamRoleTableTeamRole_Post_Power" FromRole="TeamRoleTable" ToRole="TeamRole_Post_Power" />
+        </EntityType>
+        <Association Name="TeamTeamRoleTable">
+          <End Type="AntColonyEntity.Team" Role="Team" Multiplicity="1" />
+          <End Type="AntColonyEntity.TeamRoleTable" Role="TeamRoleTable" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TeamRole_Post_Power">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="TeamRoleTable" Relationship="AntColonyEntity.TeamRoleTableTeamRole_Post_Power" FromRole="TeamRole_Post_Power" ToRole="TeamRoleTable" />
+          <NavigationProperty Name="Power" Relationship="AntColonyEntity.TeamRole_Post_PowerPower" FromRole="TeamRole_Post_Power" ToRole="Power" />
+        </EntityType>
+        <Association Name="TeamRoleTableTeamRole_Post_Power">
+          <End Type="AntColonyEntity.TeamRoleTable" Role="TeamRoleTable" Multiplicity="1" />
+          <End Type="AntColonyEntity.TeamRole_Post_Power" Role="TeamRole_Post_Power" Multiplicity="*" />
+        </Association>
+        <Association Name="TeamRole_Post_PowerPower">
+          <End Type="AntColonyEntity.TeamRole_Post_Power" Role="TeamRole_Post_Power" Multiplicity="0..1" />
+          <End Type="AntColonyEntity.Power" Role="Power" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TeamSpecialPermissionTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="SpecialId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" Nullable="false" Unicode="true" MaxLength="254" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="MainUserId" Type="Int32" Nullable="false" />
+          <Property Name="Teamid" Type="Int32" Nullable="false" />
+          <Property Name="ProjectInfo" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="ProjectImg" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="SpeedOfProgress" Type="Int32" Nullable="false" >
+            <Documentation>
+              <LongDescription>int类型的进度</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="Edition" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>版本</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="GitHubUrl" Type="String" Nullable="true" MaxLength="Max" Unicode="true" />
+          <Property Name="Priority" Type="Int16" Nullable="false" >
+            <Documentation>
+              <LongDescription>优先级别</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProjectMessage" Relationship="AntColonyEntity.ProjectProjectMessage" FromRole="Project" ToRole="ProjectMessage" />
+          <NavigationProperty Name="ProjectType" Relationship="AntColonyEntity.ProjectTypeProject" FromRole="Project" ToRole="ProjectType" />
+          <NavigationProperty Name="ProjectFile" Relationship="AntColonyEntity.ProjectProjectFile" FromRole="Project" ToRole="ProjectFile" />
+          <NavigationProperty Name="ProjectFileTag" Relationship="AntColonyEntity.ProjectProjectFileTag" FromRole="Project" ToRole="ProjectFileTag" />
+          <Property Name="EstimatedTime" Type="DateTime" Nullable="false" >
+            <Documentation>
+              <LongDescription>预计完成的时间</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="User" Relationship="AntColonyEntity.ProjectUser" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="ProjectTaskList" Relationship="AntColonyEntity.ProjectProjectTaskList" FromRole="Project" ToRole="ProjectTaskList" />
+          <Property Name="WareHourseUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" >
+            <Documentation>
+              <LongDescription>仓库地址</LongDescription>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="ProjectStateTable" Relationship="AntColonyEntity.ProjectStateTableProject" FromRole="Project" ToRole="ProjectStateTable" />
+          <Property Name="Money" Type="Double" Nullable="false" >
+            <Documentation>
+              <LongDescription>价格</LongDescription>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="ProjectMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="Userid" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="Parentid" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectProjectMessage" FromRole="ProjectMessage" ToRole="Project" />
+        </EntityType>
+        <Association Name="ProjectProjectMessage">
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="1" />
+          <End Type="AntColonyEntity.ProjectMessage" Role="ProjectMessage" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ProjectType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectTypeProject" FromRole="ProjectType" ToRole="Project" />
+        </EntityType>
+        <Association Name="ProjectTypeProject">
+          <End Type="AntColonyEntity.ProjectType" Role="ProjectType" Multiplicity="1" />
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ProjectFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectProjectFile" FromRole="ProjectFile" ToRole="Project" />
+          <Property Name="FileName" Type="String" Nullable="false" Unicode="true" MaxLength="254" />
+          <Property Name="FileUrl" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="SuffixName" Type="String" Nullable="false" Unicode="true" MaxLength="124" >
+            <Documentation>
+              <LongDescription>文件后缀名</LongDescription>
+            </Documentation>
+          </Property>
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ProjectFileTag" Relationship="AntColonyEntity.ProjectFileProjectFileTag" FromRole="ProjectFile" ToRole="ProjectFileTag" />
+        </EntityType>
+        <EntityType Name="ProjectFileTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectProjectFileTag" FromRole="ProjectFileTag" ToRole="Project" />
+          <NavigationProperty Name="ProjectFile" Relationship="AntColonyEntity.ProjectFileProjectFileTag" FromRole="ProjectFileTag" ToRole="ProjectFile" />
+        </EntityType>
+        <Association Name="ProjectProjectFile">
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="1" />
+          <End Type="AntColonyEntity.ProjectFile" Role="ProjectFile" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectProjectFileTag">
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="1" />
+          <End Type="AntColonyEntity.ProjectFileTag" Role="ProjectFileTag" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectFileProjectFileTag">
+          <End Type="AntColonyEntity.ProjectFile" Role="ProjectFile" Multiplicity="*" />
+          <End Type="AntColonyEntity.ProjectFileTag" Role="ProjectFileTag" Multiplicity="1" />
+        </Association>
+        <EntityType Name="ProjectTaskList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskName" Type="String" Nullable="false" Unicode="true" MaxLength="Max" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="FromTime" Type="DateTime" Nullable="false" />
+          <Property Name="ToTime" Type="DateTime" Nullable="false" />
+          <Property Name="TaskMainUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectProjectTaskList" FromRole="ProjectTaskList" ToRole="Project" />
+          <NavigationProperty Name="User" Relationship="AntColonyEntity.ProjectTaskListUser" FromRole="ProjectTaskList" ToRole="User" />
+        </EntityType>
+        <Association Name="ProjectUser">
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="AntColonyEntity.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectProjectTaskList">
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="1" />
+          <End Type="AntColonyEntity.ProjectTaskList" Role="ProjectTaskList" Multiplicity="*" />
+        </Association>
+        <Association Name="ProjectTaskListUser">
+          <End Type="AntColonyEntity.ProjectTaskList" Role="ProjectTaskList" Multiplicity="0..1" />
+          <End Type="AntColonyEntity.User" Role="User" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ProjectStateTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="true" />
+          <Property Name="DeleteTime" Type="DateTime" Nullable="true" />
+          <Property Name="State" Type="Int16" Nullable="false" />
+          <Property Name="Color" Type="String" Nullable="false" Unicode="true" MaxLength="100" />
+          <NavigationProperty Name="Project" Relationship="AntColonyEntity.ProjectStateTableProject" FromRole="ProjectStateTable" ToRole="Project" />
+        </EntityType>
+        <Association Name="ProjectStateTableProject">
+          <End Type="AntColonyEntity.ProjectStateTable" Role="ProjectStateTable" Multiplicity="1" />
+          <End Type="AntColonyEntity.Project" Role="Project" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AntColonyEntityStoreContainer" CdmEntityContainer="AntColonyEntityContainer">
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RealyName" ColumnName="RealyName" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RootAdmin">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.RootAdmin)">
+        <MappingFragment StoreEntitySet="RootAdmin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Company)">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyInfo" ColumnName="CompanyInfo" />
+          <ScalarProperty Name="CompanyIcon" ColumnName="CompanyIcon" />
+          <ScalarProperty Name="CompanyUrl" ColumnName="CompanyUrl" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CorporaterepResentative" ColumnName="CorporaterepResentative" />
+          <ScalarProperty Name="CompanyMainUser" ColumnName="CompanyMainUser" />
+          <ScalarProperty Name="CompanyTerritory" ColumnName="CompanyTerritory" />
+          <ScalarProperty Name="CompanyYearOfEstablishment" ColumnName="CompanyYearOfEstablishment" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Team)">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+          <ScalarProperty Name="TeamInfo" ColumnName="TeamInfo" />
+          <ScalarProperty Name="TeamLogo" ColumnName="TeamLogo" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TeamAdmin" ColumnName="TeamAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team_Relation_User">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Team_Relation_User)">
+        <MappingFragment StoreEntitySet="Team_Relation_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TeamType" ColumnName="TeamType" />
+          <ScalarProperty Name="UserRemark" ColumnName="UserRemark" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamTypeTable">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.TeamTypeTable)">
+        <MappingFragment StoreEntitySet="TeamTypeTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="RemarkTag" ColumnName="RemarkTag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Power">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Power)">
+        <MappingFragment StoreEntitySet="Power">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IsCompany" ColumnName="IsCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleTable">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.RoleTable)">
+        <MappingFragment StoreEntitySet="RoleTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Post_Power">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Role_Post_Power)">
+        <MappingFragment StoreEntitySet="Role_Post_Power">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Post_User">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Role_Post_User)">
+        <MappingFragment StoreEntitySet="Role_Post_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialPermissionTable">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.SpecialPermissionTable)">
+        <MappingFragment StoreEntitySet="SpecialPermissionTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamRoleTable">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.TeamRoleTable)">
+        <MappingFragment StoreEntitySet="TeamRoleTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamRole_Post_Power">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.TeamRole_Post_Power)">
+        <MappingFragment StoreEntitySet="TeamRole_Post_Power">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamSpecialPermissionTableSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.TeamSpecialPermissionTable)">
+        <MappingFragment StoreEntitySet="TeamSpecialPermissionTableSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.Project)">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="MainUserId" ColumnName="MainUserId" />
+          <ScalarProperty Name="Teamid" ColumnName="Teamid" />
+          <ScalarProperty Name="ProjectInfo" ColumnName="ProjectInfo" />
+          <ScalarProperty Name="ProjectImg" ColumnName="ProjectImg" />
+          <ScalarProperty Name="SpeedOfProgress" ColumnName="SpeedOfProgress" />
+          <ScalarProperty Name="Edition" ColumnName="Edition" />
+          <ScalarProperty Name="GitHubUrl" ColumnName="GitHubUrl" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="EstimatedTime" ColumnName="EstimatedTime" />
+          <ScalarProperty Name="WareHourseUrl" ColumnName="WareHourseUrl" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectMessage">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectMessage)">
+        <MappingFragment StoreEntitySet="ProjectMessage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Parentid" ColumnName="Parentid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectType">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectType)">
+        <MappingFragment StoreEntitySet="ProjectType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectFile">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectFile)">
+        <MappingFragment StoreEntitySet="ProjectFile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+          <ScalarProperty Name="SuffixName" ColumnName="SuffixName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectFileTag">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectFileTag)">
+        <MappingFragment StoreEntitySet="ProjectFileTag">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTaskList">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectTaskList)">
+        <MappingFragment StoreEntitySet="ProjectTaskList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="TaskMainUser" ColumnName="TaskMainUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectStateTable">
+      <EntityTypeMapping TypeName="IsTypeOf(AntColonyEntity.ProjectStateTable)">
+        <MappingFragment StoreEntitySet="ProjectStateTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="DeleteTime" ColumnName="DeleteTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CompanyTeam" TypeName="AntColonyEntity.CompanyTeam" StoreEntitySet="Team">
+      <EndProperty Name="Company">
+        <ScalarProperty Name="Id" ColumnName="Company_Id" />
+      </EndProperty>
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Company_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamTeam_Relation_User" TypeName="AntColonyEntity.TeamTeam_Relation_User" StoreEntitySet="Team_Relation_User">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="Team_Relation_User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamTeamTypeTable" TypeName="AntColonyEntity.TeamTeamTypeTable" StoreEntitySet="TeamTypeTable">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamTypeTable">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleTableRole_Post_Power" TypeName="AntColonyEntity.RoleTableRole_Post_Power" StoreEntitySet="Role_Post_Power">
+      <EndProperty Name="RoleTable">
+        <ScalarProperty Name="Id" ColumnName="RoleTable_Id" />
+      </EndProperty>
+      <EndProperty Name="Role_Post_Power">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="RoleTable_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Role_Post_PowerPower" TypeName="AntColonyEntity.Role_Post_PowerPower" StoreEntitySet="Role_Post_Power">
+      <EndProperty Name="Power">
+        <ScalarProperty Name="Id" ColumnName="Power_Id" />
+      </EndProperty>
+      <EndProperty Name="Role_Post_Power">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Power_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamTeamRoleTable" TypeName="AntColonyEntity.TeamTeamRoleTable" StoreEntitySet="TeamRoleTable">
+      <EndProperty Name="Team">
+        <ScalarProperty Name="Id" ColumnName="Team_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamRoleTable">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamRoleTableTeamRole_Post_Power" TypeName="AntColonyEntity.TeamRoleTableTeamRole_Post_Power" StoreEntitySet="TeamRole_Post_Power">
+      <EndProperty Name="TeamRoleTable">
+        <ScalarProperty Name="Id" ColumnName="TeamRoleTable_Id" />
+      </EndProperty>
+      <EndProperty Name="TeamRole_Post_Power">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeamRole_Post_PowerPower" TypeName="AntColonyEntity.TeamRole_Post_PowerPower" StoreEntitySet="Power">
+      <EndProperty Name="TeamRole_Post_Power">
+        <ScalarProperty Name="Id" ColumnName="TeamRole_Post_Power_Id" />
+      </EndProperty>
+      <EndProperty Name="Power">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TeamRole_Post_Power_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectProjectMessage" TypeName="AntColonyEntity.ProjectProjectMessage" StoreEntitySet="ProjectMessage">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="ProjectMessage">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectTypeProject" TypeName="AntColonyEntity.ProjectTypeProject" StoreEntitySet="Project">
+      <EndProperty Name="ProjectType">
+        <ScalarProperty Name="Id" ColumnName="ProjectType_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectProjectFile" TypeName="AntColonyEntity.ProjectProjectFile" StoreEntitySet="ProjectFile">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="ProjectFile">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectProjectFileTag" TypeName="AntColonyEntity.ProjectProjectFileTag" StoreEntitySet="ProjectFileTag">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="ProjectFileTag">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectFileProjectFileTag" TypeName="AntColonyEntity.ProjectFileProjectFileTag" StoreEntitySet="ProjectFile">
+      <EndProperty Name="ProjectFileTag">
+        <ScalarProperty Name="Id" ColumnName="ProjectFileTag_Id" />
+      </EndProperty>
+      <EndProperty Name="ProjectFile">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectUser" TypeName="AntColonyEntity.ProjectUser" StoreEntitySet="User">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Project_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectProjectTaskList" TypeName="AntColonyEntity.ProjectProjectTaskList" StoreEntitySet="ProjectTaskList">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="ProjectTaskList">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectTaskListUser" TypeName="AntColonyEntity.ProjectTaskListUser" StoreEntitySet="User">
+      <EndProperty Name="ProjectTaskList">
+        <ScalarProperty Name="Id" ColumnName="ProjectTaskList_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ProjectTaskList_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectStateTableProject" TypeName="AntColonyEntity.ProjectStateTableProject" StoreEntitySet="Project">
+      <EndProperty Name="ProjectStateTable">
+        <ScalarProperty Name="Id" ColumnName="ProjectStateTable_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

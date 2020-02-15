@@ -53,7 +53,7 @@ namespace AntcolonyProgram
             services.AddScoped<IUserService, UserService>();
             //services.AddScoped(IUserService,);
             //services.AddTransient(AntcolonyContext, DbContentFactory);
-            
+
             //efÁ¬½Ó×Ö·û´®
             var connection = Configuration.GetConnectionString("BloggingDatabase");
 

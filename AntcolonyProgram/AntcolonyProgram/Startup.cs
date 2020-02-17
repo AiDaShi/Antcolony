@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AntcolonyProgram.Filter;
+using AntcolonyProgram.JWT;
 using AntcolonyProgram.Log;
 using AntcolonyProgram.Models;
 using AntcolonyProgram.Services.Instantiation;
 using AntcolonyProgram.Services.Interface;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +51,26 @@ namespace AntcolonyProgram
             //文档说明
             services.AddSwaggerDocument();
 
+            services.AddScoped<CheckTokenFilter>();
+
+            #region jwt相关
+
+            //services.AddScoped<CheckTokenFilter>();
+
+            services.AddTransient<ITokenHelper, TokenHelper>();
+            //读取配置文件配置的jwt相关配置
+            services.Configure<JWTConfig>(Configuration.GetSection("JWT"));
+            //启用JWT
+            services.AddAuthentication(Options =>
+            {
+                Options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                Options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).
+            AddJwtBearer();
+            #endregion
+
+
+
             //注入数据库服务
             //services.AddTransient(factory => new DbContentFactory(new AntcolonyContext()));
             services.AddScoped<IUserService, UserService>();
@@ -88,6 +111,8 @@ namespace AntcolonyProgram
             app.UseStaticFiles();
             app.UseRouting();
 
+            //启用认证中间件
+            app.UseAuthentication();
             app.UseAuthorization();
 
             //注册Swagger UI插件
@@ -98,7 +123,7 @@ namespace AntcolonyProgram
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=LoginHandle}/{action=LoginPage}/{id?}");
             });
             //app.UseEndpoints(endpoints =>
             //{

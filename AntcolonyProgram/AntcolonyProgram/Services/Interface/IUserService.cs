@@ -8,5 +8,6 @@ namespace AntcolonyProgram.Services.Interface
 {
     public interface IUserService: IBaseService<User>
     {
+        Task<User> Login(User user);
     }
 }

@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Antcolony 蚁群团队管理系统 - 登录</title>
+    <meta name="keywords" content="Antcolony 蚁群团队管理系统">
+    <meta name="description" content="Antcolony 蚁群团队管理系统">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="~/HPlus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="~/HPlus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="~/HPlus/css/animate.css" rel="stylesheet">
+    <link href="~/HPlus/css/style.css?v=4.1.0" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name" style="transform: translateX(-30%);font-size: 100px;">Antcolony</h1>
+
+            </div>
+            <h3>欢迎使用 Antcolony 蚁群团队管理系统</h3>
+
+            <form class="m-t" method="post" id="form1" role="form" action="/LoginHandle/LoginNow">
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="用户名" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pwd" class="form-control" placeholder="密码" required="">
+                </div>
+                <button type="button" id="loginOne" class="btn btn-primary block full-width m-b">登 录</button>
+
+
+                <p class="text-muted text-center">
+                    <a href="#"><small>忘记密码了？</small></a> | <a href="/LoginHandle/RegisterPage">注册一个新账号</a>
+                </p>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="~/HPlus/js/jquery.min.js?v=2.1.4"></script>
+    <script src="~/HPlus/js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!--统计代码，可删除-->
+    <script type="text/javascript">
+        $(function () {
+            $("#loginOne").click(function () {
+                $.post("/LoginHandle/LoginNow", { username: form1.username.value, pwd: form1.pwd.value }, function (data) {
+                    if (data.code == 200) {
+                        document.cookie = "VailCode=" + data.value.tokenStr;
+                        alert("登录成功");
+                        setTimeout(function () {
+                            location.href = "/Home/Index";
+                        }, 2000);
+                    } else {
+                        alert("登录失败！Msg:" + data.message);
+                    }
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

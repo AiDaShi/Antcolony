@@ -12,7 +12,12 @@ namespace AntcolonyProgram.Services.Instantiation
         public UserService(AntcolonyContext dbContentFactory)
             :base(dbContentFactory)
         {
+           
+        }
 
+        public Task<User> Login(User user)
+        {
+            return Task.FromResult(db.Set<User>().FirstOrDefault(x=>x.RealyName==user.RealyName && x.Pwd==user.Pwd));
         }
     }
 }

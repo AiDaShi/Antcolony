@@ -12,5 +12,10 @@ namespace AntcolonyProgram.Controllers
         {
             return View();
         }
+
+        public void TestCommit() 
+        {
+            
+        }
     }
 }
